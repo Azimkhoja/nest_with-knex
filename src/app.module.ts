@@ -3,9 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import {KnexModule} from 'nest-knexjs'
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: `.${process.env.NODE_ENV}.env`,
-    }),
+    ConfigModule.forRoot({isGlobal: true}),
     KnexModule.forRoot({
       config: {
         client: 'postgres',
